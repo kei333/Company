@@ -17,7 +17,7 @@ if(isset($_POST['login'])){
             foreach ($pdo->query('SELECT * FROM user WHERE id="KANRISYA"') as $row2){
                 var_dump($row2);
             }*/
-            $stmt = $pdo->prepare("SELECT * FROM user WHERE id = ?");
+            $stmt = $pdo->prepare('SELECT * FROM user WHERE id = ?');
             $stmt->bindValue(1, $id, PDO::PARAM_STR);//値をstmtに関連付ける
             //オブジェクトを配列として使用できない対策
             $_SESSION['name']= $pdo->prepare("SELECT name FROM user WHERE id=?");//sessonにidのname格納
